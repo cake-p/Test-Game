@@ -1,0 +1,18 @@
+version: 1.0.{build}-{branch}
+
+skip_commits:
+  files:
+    - README.md
+
+environment:
+  matrix:
+    - PYTHON: "C:\\Python37-x64"
+
+install:
+  - "%PYTHON%\\python.exe -m pip install -U pip setuptools pyinstaller pygame"
+
+build_script:
+  - "%PYTHON%\\Scripts\\pyinstaller.exe TestGame.spec"
+
+artifacts:
+  - path: dist/TestGame.exe
